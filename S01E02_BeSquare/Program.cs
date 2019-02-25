@@ -10,7 +10,7 @@ namespace S01E02_BeSquare
 
             factory.SquareSize = 3;
             factory.AddMaterial(30, 30);
-            factory.AddMaterial(10, 30);
+            factory.AddMaterial(3, 30);
 
             factory.SquareSize = 10;
             factory.AddMaterial(100, 30);
@@ -24,7 +24,6 @@ namespace S01E02_BeSquare
             }
 
             Console.WriteLine($"Created a total of {totalSquares} squares.");
-            Console.ReadLine();
-        }
+            }
     }
 }
