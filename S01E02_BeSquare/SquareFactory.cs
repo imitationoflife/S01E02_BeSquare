@@ -15,6 +15,10 @@ namespace S01E02_BeSquare
             if (height <= 0)
                 throw new ArgumentOutOfRangeException(nameof(height), "Height of material must be positive.");
 
+            // Added a new condition here, so it's not possible to add material, that is smaller than the size of wanted squares.
+            if (height < SquareSize || width < SquareSize)
+                throw new ArgumentOutOfRangeException(nameof(SquareSize), "Material must have at least the same width and height as the square size.");
+
             if (SquareSize <= 0)
                 throw new InvalidOperationException("The square factory will not work unless the square size is a positive integer.");
 
@@ -36,7 +40,11 @@ namespace S01E02_BeSquare
                     var w = Math.Min(SquareSize, remainingWidth);
                     var h = Math.Min(SquareSize, remainingHeight);
 
-                    _ready.Enqueue(new Rectangle(w, h));
+                    // Added a little check here, so that the leftovers from the edges of material are not piled up in the square enqueue.
+                    if (SquareSize == w && SquareSize == h)
+                    {
+                        _ready.Enqueue(new Rectangle(w, h));
+                    }
                 }
         }
 

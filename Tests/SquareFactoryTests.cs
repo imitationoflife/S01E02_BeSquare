@@ -64,7 +64,7 @@ namespace Tests
             {
                 // Obviously, a square factory is going to have to return squares.
                 Assert.IsTrue(square.IsSquare);
-
+                
                 // The contract says that every square will be of the same size as we had
                 // in .SquareSize when we called .AddMaterial(), so verify this is always true.
                 Assert.AreEqual(squareSize, square.Width);
